@@ -18,6 +18,7 @@ import logging
 logger = logging.getLogger('werkzeug') # WSGI - web server gateway interface
 logger.setLevel(logging.ERROR)
 
+# adding __name__ fixes no css
 app = dash.Dash(__name__, static_folder='assets/')
 server = app.server
 
@@ -102,9 +103,11 @@ def create_slider(id, value):
 
 app.callback_map = {} # resets the callbacks
 
+app.title = 'Global Inequality Visualization'
+
 app.layout = html.Div([
     html.Div([
-        html.H1(id='header', children='Global Inequality'),
+        html.H1(id='header', children='Global Inequality Visualization'),
         html.Div(id='sub-header', children='by Jude Michael Teves, Master of Science in Data Science'),
         html.Br(),
         html.Div([
