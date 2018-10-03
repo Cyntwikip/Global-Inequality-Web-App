@@ -19,6 +19,7 @@ logger = logging.getLogger('werkzeug') # WSGI - web server gateway interface
 logger.setLevel(logging.ERROR)
 
 app = dash.Dash(static_folder='assets/')
+server = app.server
 
 df = pd.read_csv('GDP-clean.csv')
 df.set_index('Country Code', inplace=True)
