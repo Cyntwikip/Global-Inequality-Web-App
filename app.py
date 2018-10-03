@@ -113,7 +113,7 @@ app.layout = html.Div([
         html.Div([
             html.Span(children='''The first of the Sustainable Development Goals for the year 2030 is '''),
             html.Strong(children='''No Poverty'''),
-            html.Span(children='''. In the process the gap between the rich and the poor will gradually decrease,
+            html.Span(children='''. In the process, the gap between the rich and the poor will gradually decrease,
             but with the recent adverse events all around the world such 
             as terrorism and immigration ban, one might think that we are straying further from the goal. 
             But is it really the case? One way of measuring this is by looking at a country's GDP per capita.
@@ -151,6 +151,7 @@ app.layout = html.Div([
                 html.Div([
                     # Histogram
                     dcc.Graph(id="histogram"),
+                    html.Br(),
                     # Graph 1
                     html.Div([
                         html.Div([
@@ -207,12 +208,12 @@ def update_year_value(year):
 
 @app.callback(Output('year-slider-value-2', 'children'), 
               [Input('year-slider-2', 'value')])
-def update_year_value(year):
+def update_year_value_2(year):
     return str(year)
 
 @app.callback(Output('year-slider-value-3', 'children'), 
               [Input('year-slider-3', 'value')])
-def update_year_value(year):
+def update_year_value_3(year):
     return str(year)
 
 @app.callback(Output('histogram', 'figure'), 
