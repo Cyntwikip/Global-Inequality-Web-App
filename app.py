@@ -144,14 +144,15 @@ app.layout = html.Div([
                     html.Div([
                         dcc.Graph(id='country-gdp-graph')
                     ], className="col-right col-lg-5 v-center"),
-                ], className="row align-items-center tab-content")
+                ], className="row align-items-center tab-content top")
             ], className="container-fluid", label="GDP per capita trend"),
             # Tab 2
             dcc.Tab([
                 html.Div([
                     # Histogram
                     dcc.Graph(id="histogram"),
-                    html.Br(),
+                ], className="row align-items-center tab-content top"),
+                html.Div([
                     # Graph 1
                     html.Div([
                         html.Div([
