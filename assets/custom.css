@@ -1,0 +1,103 @@
+
+body {
+    background-color: #F4F4F8;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#intro-section, 
+#conclusion {
+    padding: 30px 20%;
+    text-align: justify;
+}
+
+h1 {
+    font-weight: 900;
+    font-stretch: expanded;
+}
+
+#sub-header {
+    margin-left: 50px;
+}
+
+#intro {
+    margin: 0 10px;
+}
+
+.container-fluid {
+    /* width: 1200px; */
+    /* width: 95%; */
+    background-color: black;
+    padding: 10px 10px;
+}
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.rc-slider-handle {
+    /* margin-left: 5px; */
+}
+
+.main {
+    width: 90%;
+    margin: 0 auto;
+    /* background-color: lightslategray; */
+    background-color: white;
+}
+
+.main-content {
+    margin-top: 20px;
+    /* border: lightslategray 2px solid; */
+    border-radius: 2px;
+    /* background-color: white; */
+}
+
+.tabs-section {
+    /* margin-top: 20px; */
+}
+
+.tab-content {
+    background-color: white;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.col-left, .col-right {
+    margin: 0;
+    padding: 0;
+    background-color: #00000000;
+}
+
+.map {
+    margin-top: 30px;
+}
+
+.year-slider {
+    margin: 0 20px;
+    /* margin: 0px 20px 40px 20px; */
+    /* display: inline-block; */
+    /* width: 400px; */
+    width: 40%;
+}
+
+.year-slider-label {
+    /* margin-right: 20px; */
+}
+
+.year-slider-value {
+    /* margin-left: 30px; */
+}
+
+#country-gdp-graph {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* margin-right: 30px; */
+    /* background-color: black; */
+}
+
+#histogram {
+    margin: 0 auto;
+}
