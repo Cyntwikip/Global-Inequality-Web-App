@@ -25,6 +25,11 @@ server = app.server
 df = pd.read_csv('GDP-clean.csv')
 df.set_index('Country Code', inplace=True)
 
+insights_text = '''The histogram plot shows that in the 1900s, there are many countries on both 
+        the lower and upper end of the GDP-per-capita spectrum, which means that there is inequality. 
+        Fast forward to 2017, most countries are in the middle of the spectrum. This is good news for 
+        us because we are moving towards a fairer world.'''
+
 def update_map(year, colorstyle=0):
     if colorstyle == 0:
         colorscale = [[0,"rgb(103, 11, 99)"],[0.66,"rgb(91, 11, 239)"],
@@ -129,6 +134,9 @@ app.layout = html.Div([
         dcc.Tabs([
             # Tab 1
             dcc.Tab([
+                html.Div(id="graph-guide-text", className="tab-content top",
+                    children='''The graphs are interactive. You can move the slider to show the GDP per capita for a given year.
+                     You can also click on a country to display the GDP per capita trends.'''),
                 html.Div([
                     html.Div(id="year-slider-label", className="year-slider-label", children="Year"),
                     create_slider('year-slider', 2017),  
@@ -144,14 +152,17 @@ app.layout = html.Div([
                     html.Div([
                         dcc.Graph(id='country-gdp-graph')
                     ], className="col-right col-lg-5 v-center"),
-                ], className="row align-items-center tab-content top")
+                ], className="row align-items-center")
             ], className="container-fluid", label="GDP per capita trend"),
             # Tab 2
             dcc.Tab([
                 html.Div([
                     # Histogram
-                    dcc.Graph(id="histogram"),
-                ], className="row align-items-center tab-content top"),
+                    html.Div([
+                        dcc.Graph(id="histogram")
+                    ], className="col-left col-lg-8"),
+                    html.Div(id="conclusion", className="col-right col-lg-4", children=insights_text)
+                ], className="row align-items-center tab-content top insights"),
                 html.Div([
                     # Graph 1
                     html.Div([
@@ -176,12 +187,7 @@ app.layout = html.Div([
             ], className="container-fluid", label="GDP per capita comparison across years")
         ], className="tabs-section")
     ], className="main-content"),
-    html.Div(id="conclusion",
-        children='''The histogram plot shows that in the 1900s, there are many countries on both 
-        the lower and upper end of the GDP-per-capita spectrum, which means that there is inequality. 
-        Fast forward to 2017, most countries are in the middle of the spectrum. This is good news for 
-        us because we are moving towards a fairer world.'''
-    )
+    # html.Div(id="conclusion",children=insights_text)
 ], className="main")
 
 @app.callback(Output('world-map', 'figure'), 
@@ -239,7 +245,7 @@ def update_histogram(year1, year2):
         xbins = go.histogram.XBins(size=20),
         name = str(year2)
     )
-    data = [trace1, trace2]
+    data = [trace2, trace1]
     
 #     # Group data together
 #     hist_data = [x1, x2, x3, x4]
@@ -251,7 +257,7 @@ def update_histogram(year1, year2):
 
     layout = dict(title = 'GDP per capita histogram', 
                   xaxis = {'title': 'Min-Max-Scaled Log-Transformed GDP per capita'},
-                  yaxis = {'title': 'Counts'},
+                  yaxis = {'title': 'Number of countries'},
                   barmode = 'overlay',
                   #paper_bgcolor = '#F4F4F8',
                   #plot_bgcolor = '#F4F4F8',

@@ -7,14 +7,9 @@ body {
     margin: 0 auto;
 }
 
-#intro-section, 
-#conclusion {
+#intro-section {
     padding: 30px 20%;
     text-align: justify;
-}
-
-#conclusion {
-    padding-bottom: 60px;
 }
 
 h1 {
@@ -65,6 +60,12 @@ h1 {
 
 .tabs-section {
     /* margin-top: 20px; */
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.tabs-section div:hover {
+    color: lightcoral;
 }
 
 .tab-content {
@@ -110,6 +111,32 @@ h1 {
     /* background-color: black; */
 }
 
-#histogram {
+#graph-guide-text {
+    max-width: 1600px;
+    min-width: 600px;
+    width: 60%;
     margin: 0 auto;
+    padding-bottom: 15px;
+    text-align: justify; 
+    font-size: 14px;   
+    color: slategray;
+}
+
+.insights {
+    margin: 0 auto;
+    width: 70%;
+}
+
+#histogram {
+    /* display: inline-block; */
+    /* margin: 0 auto; */
+}
+
+#conclusion {
+    /* display: inline-block; */
+    /* padding-bottom: 60px; */
+    /* font-size: 20px; */
+    padding: 10px 0;
+    text-align: justify;
+    /* color: rgb(142, 186, 217); */
 }
