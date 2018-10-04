@@ -152,7 +152,7 @@ app.layout = html.Div([
                     html.Div([
                         dcc.Graph(id='country-gdp-graph')
                     ], className="col-right col-lg-5 v-center"),
-                ], className="row align-items-center")
+                ], className="row align-items-center content-tab1")
             ], className="container-fluid", label="GDP per capita trend"),
             # Tab 2
             dcc.Tab([
@@ -272,10 +272,12 @@ def update_graph(clickData):
     data = []
     if clickData:
         country = clickData['points'][0]['location']
-        data = [{'x': df.loc[:,'1961':].columns.tolist(), 
-                 'y': df.loc[country, '1961':].values.tolist(), 
-                 'type': 'line'}]
-        title = df.loc[country,'Country Name']
+    else:
+        country = 'PHL'
+    data = [{'x': df.loc[:,'1961':].columns.tolist(), 
+                'y': df.loc[country, '1961':].values.tolist(), 
+                'type': 'line'}]
+    title = df.loc[country,'Country Name']
     layout = dict(title = '{} GDP per capita'.format(title), 
                   xaxis = {'title': 'year'},
                   yaxis = {'title': 'GDP per capita (USD)'},
