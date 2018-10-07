@@ -158,9 +158,13 @@ app.layout = html.Div([
         html.Div([
             html.Span(
                 children='''The first of the Sustainable Development \
-                    Goals for the year 2030 is '''),
+                    Goals (SDG) for the year 2030 is '''),
             html.Strong(children='''No Poverty'''),
-            html.Span(children='''. In the process, the gap between the rich 
+            html.Span(children='''. Currently, the international poverty line
+                threshold is '''),
+            html.Strong(children='''US$1.9/day'''),
+            html.Span(children='''. In the process of aiming to achieve SDG 1, 
+                the gap between the rich 
                 and the poor will gradually decrease, but with the recent 
                 adverse events all around the world such as terrorism and 
                 immigration ban, one might think that we are straying further 
