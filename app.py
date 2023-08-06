@@ -8,7 +8,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 
-from dash.dependencies import Input, Output, State, Event
+from dash.dependencies import Input, Output
 from IPython.display import display, IFrame, HTML
 
 # turn off web logs
@@ -17,7 +17,8 @@ logger = logging.getLogger('werkzeug')  # WSGI - web server gateway interface
 logger.setLevel(logging.ERROR)
 
 # adding __name__ fixes 'no css' issue
-app = dash.Dash(__name__, static_folder='assets/')
+# app = dash.Dash(__name__, static_folder='assets/') # deprecated
+app = dash.Dash(__name__, assets_folder='assets/')
 server = app.server
 
 # read the GDP csv
@@ -153,7 +154,7 @@ app.layout = html.Div([
         html.H1(id='header', children='Global Inequality Visualization'),
         html.Div(id='sub-header',
                  children='by Jude Michael Teves, \
-                     Master of Science in Data Science'),
+                     Master of Science in Data Science (2018)'),
         html.Br(),
         html.Div([
             html.Span(
