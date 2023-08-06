@@ -14,7 +14,8 @@ from dash.dependencies import Input, Output
 from IPython.display import display, IFrame, HTML
 
 # turn off web logs
-os.environ['FLASK_DEBUG'] = 'development'
+# os.environ['FLASK_ENV'] = 'development'
+os.environ['FLASK_DEBUG'] = 'True'
 logger = logging.getLogger('werkzeug')  # WSGI - web server gateway interface
 logger.setLevel(logging.ERROR)
 
@@ -489,5 +490,6 @@ def update_graph(clickData):
 if __name__ == '__main__':
     app.css.config.serve_locally = True
     app.scripts.config.serve_locally = True
-    port = int(os.environ.get('PORT', 5000))
-    app.run_server(port=port, debug=True)
+    # port = int(os.environ.get('PORT', 5000))
+    # app.run_server(port=port, debug=True)
+    app.run(debug=True)
