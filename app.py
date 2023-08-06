@@ -4,15 +4,17 @@ import pandas as pd
 import logging
 
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+# import dash_core_components as dcc
+# import dash_html_components as html
+from dash import dcc, html
+
 import plotly.graph_objs as go
 
 from dash.dependencies import Input, Output
 from IPython.display import display, IFrame, HTML
 
 # turn off web logs
-os.environ['FLASK_ENV'] = 'development'
+os.environ['FLASK_DEBUG'] = 'development'
 logger = logging.getLogger('werkzeug')  # WSGI - web server gateway interface
 logger.setLevel(logging.ERROR)
 
